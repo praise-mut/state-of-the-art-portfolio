@@ -1,0 +1,88 @@
+:root {
+  /* Dark Mode (Default) - Deep, glowing, neon */
+  --bg-color: #050505;
+  --text-color: #e2e8f0; /* Slate 200 */
+  --primary-accent: #00f2ea;
+  --secondary-accent: #ff0055;
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --nav-bg: rgba(5, 5, 5, 0.85);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --nav-height: 70px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Restore cursor for touch devices handled in JS, but good fallback */
+@media (hover: none) {
+    body {
+        cursor: auto;
+    }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+/* Enhanced Glass Panel */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px; /* Slightly more rounded for modern feel */
+  box-shadow: 0 8px 32px var(--shadow-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Text Gradient - Adjusted for better contrast in both modes */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.section-padding {
+  padding: 120px 0;
+}
+
+a, button, input, select, textarea, .btn, .nav-link {
+  cursor: none !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-accent);
+}
+
+/* Fix for cursor blocking interaction */
+.pointer-events-none {
+    pointer-events: none;
+}
