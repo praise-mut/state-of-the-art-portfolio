@@ -40,16 +40,19 @@ const Contact = () => {
     emailjs.send(serviceID, templateID, templateParams, publicKey)
       .then((result) => {
           setIsSubmitting(false);
-          toast.success(`Thanks ${formData.name}! Message sent successfully. 🚀`, {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
+          toast.success(
+            <div className="d-flex align-items-center gap-3">
+              <span style={{ fontSize: '20px' }}>🚀</span>
+              <div>
+                <div className="fw-bold">Message Delivered!</div>
+                <div className="small opacity-75">I'll get back to you shortly, {formData.name}.</div>
+              </div>
+            </div>, 
+            {
+              icon: false, // We're using our own custom layout
+              style: { padding: '15px' }
+            }
+          );
           setFormData({ name: '', email: '', subject: '', message: '' });
       }, (error) => {
           setIsSubmitting(false);

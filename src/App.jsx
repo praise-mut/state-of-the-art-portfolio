@@ -27,7 +27,26 @@ function App() {
       </main>
       <Footer />
       <BackToTop />
-      <ToastContainer />
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        toastStyle={{ 
+          background: 'rgba(20, 20, 20, 0.8)', 
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderRadius: '12px',
+          color: '#fff',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+        }}
+      />
     </div>
   );
 }
