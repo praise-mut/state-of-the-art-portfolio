@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaDownload } from 'react-icons/fa';
 
 const TypingEffect = () => {
   const [text1, setText1] = useState('');
@@ -87,9 +87,18 @@ const Hero = () => {
                 I build accessible, pixel-perfect, performant, and engaging digital experiences for the web.
               </p>
               
-              <div className="d-flex gap-3">
+              <div className="d-flex flex-wrap gap-3">
                 <Button variant="outline-info" size="lg" href="#projects">View Work</Button>
                 <Button variant="primary" size="lg" href="#contact">Contact Me</Button>
+                <Button 
+                  variant="outline-light" 
+                  size="lg" 
+                  href="/Resume_Praise_Mutijima.docx" 
+                  download 
+                  className="d-flex align-items-center gap-2"
+                >
+                  <FaDownload size={16} /> Resume
+                </Button>
               </div>
 
               <div className="mt-5 d-flex gap-4">

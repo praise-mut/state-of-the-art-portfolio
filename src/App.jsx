@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,24 +9,52 @@ import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import CustomCursor from './components/CustomCursor';
+import Preloader from './components/Preloader';
 import { ToastContainer } from 'react-toastify';
+import { AnimatePresence, motion } from 'framer-motion';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="app-container">
       <CustomCursor />
-      <ScrollProgress />
-      <NavBar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
+      
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <Preloader key="preloader" />
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <ScrollProgress />
+            <NavBar />
+            <main>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Contact />
+            </main>
+            <Footer />
+            <BackToTop />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <ToastContainer 
         position="bottom-right"
         autoClose={5000}
