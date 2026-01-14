@@ -15,16 +15,16 @@ const projects = [
     image: dashboardImage
   },
   {
-    title: 'Task Management App',
-    desc: 'Collaborative project management tool with real-time updates using Socket.io. Features drag-and-drop Kanban boards.',
-    tags: ['Vue.js', 'Firebase', 'Tailwind'],
+    title: 'Student Internship System',
+    desc: 'Comprehensive platform connecting students, companies, and coordinators. Features role-based dashboards, report submission, and internship tracking.',
+    tags: ['React', 'Spring Boot', 'PostgreSQL', 'TailwindCSS'],
     link: '#',
     github: '#'
   },
   {
-    title: 'AI Image Generator',
-    desc: 'Web application that uses OpenAI API to generate images from text descriptions. Features a gallery and social sharing.',
-    tags: ['React', 'OpenAI API', 'Express'],
+    title: 'Recipe & Meal Planning App',
+    desc: 'Smart culinary assistant for recipe discovery, weekly meal planning, and automated grocery list generation.',
+    tags: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'],
     link: '#',
     github: '#'
   }
